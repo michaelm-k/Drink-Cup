@@ -128,8 +128,8 @@
 	$('#soundstatus').click(function(){
 		if (document.getElementById("soundstatus").getAttribute('src') === 'img/unmuted.png') {
 			$('#soundstatus').attr('src', 'img/muted.jpg');
-			 document.getElementById("waterAudio").muted=true;
-				document.getElementById("slurpAudio").muted=true;
+			document.getElementById("waterAudio").muted=true;
+			document.getElementById("slurpAudio").muted=true;
 		} else {
 			$('#soundstatus').attr('src', 'img/unmuted.png');
 			document.getElementById("waterAudio").muted=false;
