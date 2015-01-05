@@ -1,30 +1,19 @@
-/*$('img').hover(
-		
-		function(){
-			$('div').stop().animate({'height' : '420px', 'top' : 90 }, 1500);
-		},
-		
-		function(){          
-			$('div').stop().animate({'height' : 0, 'top' : '510px' }, 1500);
-		}
-		
-		);*/
-	//var waterAudio = new Audio('pour_water_audio.mp3');
-	//var slurpAudio = new Audio('slurp_audio.mp3');
-	
-	
-	var slurped=0, poured=0, glassclicks=0;	
+var slurped=0, poured=0, glassclicks=0;	
 
-	function pourDrink(){	
-		waterAudio.play();		
-		$('#water').animate({'height' : '440px', 'top' : -510 }, 3600, function() {
-			slurped=0;
+function pourDrink() {
+	waterAudio.play();		
+    $('.wrapper .water').animate({
+        'height': '229px',
+        'top': 0
+    }, 3925, function () {
+        	slurped=0;
 			glassclicks=0;
-		});			
-	}			
-	pourDrink();
-	
-	//START: D-R-I-N-K U-P
+    });
+
+}
+pourDrink();
+
+//START: D-R-I-N-K U-P
 	$('p').each(function(){
 			
 		var p = $(this),
@@ -59,72 +48,34 @@
 				
 		}, 3600);		
 	});
-	//END: D-R-I-N-K U-P
-	
-	setTimeout(function(){//wait for D-R-I-N-K U-P to finish
+//END: D-R-I-N-K U-P
+
+setTimeout(function(){//wait for D-R-I-N-K U-P to finish
 		poured=1;
 		glassclicks=0;
 	}, 4500);
 	
-	//START: ARROWS
-	
-		//START: RIGHT ARROW
-		function goLeft() {
-			$('#arrow-right').animate({'left': '-60px'}, 1000, goRight);		
-		}
-		
-		function goRight() {
-			$('#arrow-right').animate({'left': '60px'}, 1000, goLeft);
-		}	
-		
-		setTimeout(function() {
-			$('#arrow-right').each(function(i) {
-			$(this).delay((i++) * 500).fadeTo(1000, 1); })
-		}, 3600);
-		
-		setTimeout(function() { goRight(); }, 5000);
-		//END: LEFT ARROW
-		
-		//START: LEFT ARROW
-		function goLeft2() {
-			$('#arrow-left').animate({'left': '-60px'}, 1000, goRight2);		
-		}
-		
-		function goRight2() {
-			$('#arrow-left').animate({'left': '60px'}, 1000, goLeft2);
-		}
-		
-		setTimeout(function() {
-			$('#arrow-left').each(function(i) {
-			$(this).delay((i++) * 500).fadeTo(1000, 1); })
-		}, 3600);
-		
-		setTimeout(function() { goLeft2(); }, 5000);
-		//END: LEFT ARROW
-		
-	//END: ARROWS
-		
-	$( '#glass' ).click(function() {
+$( '.glass' ).click(function() {
 		glassclicks++;		
 		var waterColor = $("#full").spectrum("get");
 		
 		if (slurped==0&&poured==1 && glassclicks==1) {
 			slurpAudio.play();	
-			$('#water').animate({'height' : 0, 'top' : '-70px' }, 2250, function() {	
+			$('.wrapper .water').animate({'height' : 0, 'top' : '229px' }, 3000, function() {	
 				$("#full").spectrum("enable");
 				slurped=1;
 				poured=0;
 				glassclicks=0;
 			});					
 		} else if (slurped==1 && poured==0 && glassclicks==1) {
-			$( "#water" ).css( "background-color", waterColor); 
+			$( ".wrapper .water" ).css( "background-color", waterColor); 
 			pourDrink();
 			poured=1;
 			$("#full").spectrum("disable");
 		} 
 	});
-	
-	//START: SOUND ON/OFF
+
+//START: SOUND ON/OFF
 	$('#soundstatus').click(function(){
 		if (document.getElementById("soundstatus").getAttribute('src') === 'img/unmuted.png') {
 			$('#soundstatus').attr('src', 'img/muted.jpg');
@@ -136,4 +87,41 @@
 			document.getElementById("slurpAudio").muted=false;
 		}			
 	});
-	//END: SOUND OM/OFF
+//END: SOUND OM/OFF
+	
+//START: ARROWS
+
+	//START: RIGHT ARROW
+	function goLeft() {
+		$('#arrow-right').animate({'left': '-2%'}, 1000, goRight);		
+	}
+		
+	function goRight() {
+		$('#arrow-right').animate({'left': '6%'}, 1000, goLeft);
+	}	
+		
+	setTimeout(function() {
+		$('#arrow-right').each(function(i) {
+		$(this).delay((i++) * 500).fadeTo(1000, 1); })
+	}, 3600);
+		
+	setTimeout(function() { goRight(); }, 4500);
+	//END: RIGHT ARROW	
+	
+	//START: LEFT ARROW
+	function goLeft2() {
+		$('#arrow-left').animate({'left': '-6%'}, 1000, goRight2);		
+	}
+		
+	function goRight2() {
+		$('#arrow-left').animate({'left': '2%'}, 1000, goLeft2);
+	}	
+	setTimeout(function() {
+		$('#arrow-left').each(function(i) {
+		$(this).delay((i++) * 500).fadeTo(1000, 1); })
+	}, 3600);
+		
+	setTimeout(function() { goLeft2(); }, 4500);
+	//END: LEFT ARROW
+	
+//END: ARROWS
