@@ -2,6 +2,7 @@ var slurped=0, poured=0, glassclicks=0;
 var counter=0;//for unique drinks
 var colorArray = [];
 var waterColor;
+
 function pourDrink() {
 	waterAudio.play();		
     $('.wrapper .water').animate({
@@ -11,7 +12,6 @@ function pourDrink() {
         	slurped=0;
 			glassclicks=0;
     });
-
 }
 pourDrink();
 
@@ -59,35 +59,35 @@ setTimeout(function(){
 setTimeout(function(){//wait for D-R-I-N-K U-P to finish
 		poured=1;
 		glassclicks=0;
-	}, 4500);
+}, 4500);
 	
 $( '.glass' ).click(function() {
-		glassclicks++;		
-		waterColor = $("#full").val();
+	glassclicks++;		
+	waterColor = $("#full").val();
 		
-		if (slurped==0&&poured==1 && glassclicks==1) {
-			slurpAudio.play();	
-			$('.wrapper .water').animate({'height' : 0, 'top' : '229px' }, 3000, function() {	
-				$("#full").spectrum("enable");
-				slurped=1;
-				poured=0;
-				glassclicks=0;
-				$( "#counter" ).css( "color", $("#full").spectrum("get")); 
+	if (slurped==0&&poured==1 && glassclicks==1) {
+		slurpAudio.play();	
+		$('.wrapper .water').animate({'height' : 0, 'top' : '229px' }, 3000, function() {	
+			$("#full").spectrum("enable");
+			slurped=1;
+			poured=0;
+			glassclicks=0;
+			$( "#counter" ).css( "color", $("#full").spectrum("get")); 
 				
-				if ($.inArray(waterColor, colorArray)==-1) {
-					colorArray.push(waterColor);
-					counter += 1;
-					document.getElementById("counter").innerHTML = counter;
-				}
+			if ($.inArray(waterColor, colorArray)==-1) {
+				colorArray.push(waterColor);
+				counter += 1;
+				document.getElementById("counter").innerHTML = counter;
+			}
 				
-			});					
-		} else if (slurped==1 && poured==0 && glassclicks==1) {
-			$( ".wrapper .water" ).css( "background-color", $("#full").spectrum("get")); 
-			pourDrink();
-			poured=1;
-			$("#full").spectrum("disable");
-		} 
-	});
+		});					
+	} else if (slurped==1 && poured==0 && glassclicks==1) {
+		$( ".wrapper .water" ).css( "background-color", $("#full").spectrum("get")); 
+		pourDrink();
+		poured=1;
+		$("#full").spectrum("disable");
+	} 
+});
 
 //START: SOUND ON/OFF
 	$('#soundstatus').click(function(){
