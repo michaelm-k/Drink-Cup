@@ -1,6 +1,7 @@
 var slurped=0, poured=0, glassclicks=0;	
 var counter=0;//for unique drinks
-
+var colorArray = [];
+var waterColor;
 function pourDrink() {
 	waterAudio.play();		
     $('.wrapper .water').animate({
@@ -62,7 +63,7 @@ setTimeout(function(){//wait for D-R-I-N-K U-P to finish
 	
 $( '.glass' ).click(function() {
 		glassclicks++;		
-		var waterColor = $("#full").spectrum("get");
+		waterColor = $("#full").val();
 		
 		if (slurped==0&&poured==1 && glassclicks==1) {
 			slurpAudio.play();	
@@ -71,9 +72,13 @@ $( '.glass' ).click(function() {
 				slurped=1;
 				poured=0;
 				glassclicks=0;
+
+				if ($.inArray(waterColor, colorArray)==-1) {
+					colorArray.push(waterColor);
+					counter += 1;
+					document.getElementById("counter").innerHTML = counter;
+				}
 				
-				counter += 1;
-				document.getElementById("counter").innerHTML = counter;
 			});					
 		} else if (slurped==1 && poured==0 && glassclicks==1) {
 			$( ".wrapper .water" ).css( "background-color", waterColor); 
