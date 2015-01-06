@@ -50,6 +50,10 @@ pourDrink();
 	});
 //END: D-R-I-N-K U-P
 
+setTimeout(function(){
+	$("#uniquedrinks").stop(true).animate( {opacity: '1'}, 1500); 
+}, 3600);	
+
 setTimeout(function(){//wait for D-R-I-N-K U-P to finish
 		poured=1;
 		glassclicks=0;
