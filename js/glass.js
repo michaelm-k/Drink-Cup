@@ -72,7 +72,8 @@ $( '.glass' ).click(function() {
 				slurped=1;
 				poured=0;
 				glassclicks=0;
-
+				$( "#counter" ).css( "color", $("#full").spectrum("get")); 
+				
 				if ($.inArray(waterColor, colorArray)==-1) {
 					colorArray.push(waterColor);
 					counter += 1;
@@ -81,7 +82,7 @@ $( '.glass' ).click(function() {
 				
 			});					
 		} else if (slurped==1 && poured==0 && glassclicks==1) {
-			$( ".wrapper .water" ).css( "background-color", waterColor); 
+			$( ".wrapper .water" ).css( "background-color", $("#full").spectrum("get")); 
 			pourDrink();
 			poured=1;
 			$("#full").spectrum("disable");
