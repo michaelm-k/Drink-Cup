@@ -1,4 +1,5 @@
 var slurped=0, poured=0, glassclicks=0;	
+var counter=0;//for unique drinks
 
 function pourDrink() {
 	waterAudio.play();		
@@ -70,6 +71,9 @@ $( '.glass' ).click(function() {
 				slurped=1;
 				poured=0;
 				glassclicks=0;
+				
+				counter += 1;
+				document.getElementById("counter").innerHTML = counter;
 			});					
 		} else if (slurped==1 && poured==0 && glassclicks==1) {
 			$( ".wrapper .water" ).css( "background-color", waterColor); 
