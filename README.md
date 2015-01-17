@@ -1,4 +1,4 @@
-The-Drinking-Game
+Drink/Cup
 =================
 
-Interactive web application
+A simple interactive web application made in HTML, CSS, and JS.
