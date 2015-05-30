@@ -5,32 +5,31 @@
     width: 100% \9;
     max-width: 100%;
     height: auto;
+	cursor: default;
 }
+
 .wrapper {
     position: relative;
     height:auto;
     width: 100%;
     max-width: 170px;
     overflow:hidden;
-	top:40px;
+	top:60px;
 }
-.img-responsive {
-    display: block;
-    width: 100% \9;
-    max-width: 100%;
-    height: auto;
-}
+
 .glass {
     position:absolute;
-    left:0px;
-    top:0px;
+    left: 0px;
+    top: 0px;
     z-index:5;
 }
+
 .hide-image {
     display: block;
     opacity: 0;
     width: 100%;
 }
+
 .water {
     position:absolute;
     left:0px;
@@ -39,37 +38,4 @@
     background-color:#67d9ff;
     height:0px;
     display:block;
-}
-
-html,body {
-   height:100%;
-   font-family: "Permanent Marker"; font-size: 30px; 
-  overflow: hidden;
-  max-width:100%;
-}
-.custom-wrapper {
-   min-height:100%;
-   position:relative;
-   max-width:100%;
-}
-.pad-container{
-  padding-top:40px;
-  max-width:100%;
-  }
-  
-    #arrow-right {
-	top: 90px;
-	float:left;
-	position:relative;
-	opacity:0;
-	width: 20%!important;
-	height: auto!important;
-  }
-  #arrow-left{
-	top: 90px;
-	float:right;
-	position:relative;
-	opacity:0;
-	width: 20%!important;
-	height: auto!important;
 }

@@ -5,10 +5,14 @@
 		<title>Drink/Cup</title>
 		<meta charset="utf-8">
 		<meta name = "viewport" content = "width=device-width, initial-scale=1.0">
-		<link href = "css/bootstrap.min.css" rel = "stylesheet">
-		<link rel = "stylesheet" href = "css/glass.css" >
-		<link rel='stylesheet' href='css/spectrum.css' />
+		
 		<link href='https://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>	
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+		
+		<link href = "css/bootstrap.css" rel = "stylesheet">
+		<link href='css/general.css' rel='stylesheet'>
+		<link href = "css/glass.css" rel = "stylesheet">
+		<link href='css/spectrum.css' rel='stylesheet'>	
 	</head>
 	
 	<body>
@@ -21,84 +25,55 @@
 		</audio>
 		
 		<div class="custom-wrapper"> 
-		
 			<input id="full">
-			<img id = "soundstatus" src="img/unmuted.png" style = "z-index:6;right:1%;top:1%;cursor:pointer;position:absolute">
+			<i class="fa fa-question fa-2x" data-toggle="modal" data-target="#info-modal"></i>
+			<img id = "soundstatus" src="img/unmuted.png">
 				
 			<div class="container pad-container">
 				<center>
-				<span id="uniquedrinks" style="position:relative;opacity:0;top:20px">Unique Drinks: <span id="counter">0</span></span>
-				<p style="position:relative;top:40px">DRINK UP!</p>
-				<img id = "arrow-right" src="img/arrow_right.png" class="img-responsive">
-				<img id = "arrow-left" src="img/arrow_left.png" class="img-responsive">
-				<!--<div class="centered">-->
-					<div class="wrapper">
-						<img class="hide-image" src="img/glass.png">
-						<img class="glass img-responsive" src="img/glass.png">
-						<div class="water"></div>
-					</div>
-				<!--</div>-->
-				</center>
-				
+					<span id="uniquedrinks">Unique Drinks: <span id="counter">0</span></span>
+					<p id="drink_up">DRINK UP!</p>
+					<img id = "arrow-right" src="img/arrow_right.png" class="img-responsive">
+					<img id = "arrow-left" src="img/arrow_left.png" class="img-responsive">
+						<div class="wrapper">
+							<img class="hide-image" src="img/glass.png">
+							<img class="glass img-responsive" src="img/glass.png">
+							<div class="water"></div>
+						</div>
+				</center>	
 			</div>
 		</div>
-
+		
+		<!-- MODAL -->
+		
+		<div id ="info-modal" class="modal fade">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">What is this...</h4>
+					</div>
+					<div class="modal-body">
+						<p style="color:#67d9ff">The objective is simple:</p>
+						<p>Drink every single shade of every single colour imaginable. (These constitute your <i>unique drinks</i>.)</p>
+						<p style="color:#67d9ff">How though?</p>
+						<p>To fill up your cup, select a colour using the colour selector in the top-left corner and then click on the glass (when it's empty).</p>
+						<p>And when it's full, you may click again to drink your brew.</p>
+						<p style="color:#67d9ff">Get to it. Drink Up!</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal" style="font-size:20px">Dismiss</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.3/jquery-ui.min.js"></script>
-		<script src = "js/bootstrap.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<script src='js/general.js'></script>
 		<script src='js/glass.js'></script>
 		<script src='js/spectrum.js'></script>	
-		<script type="text/javascript">
-		$(document).ready(function() {
-			
-			$("#full").spectrum({
-				color: "#67d9ff",
-				showInput: true,
-				className: "full-spectrum",
-				showInitial: true,
-				showPalette: true,
-				showAlpha: true,
-				disabled:true,
-				showSelectionPalette: true,
-				maxPaletteSize: 10,
-				preferredFormat: "hex",
-				localStorageKey: "spectrum.demo",
-				chooseText: "ENTER",
-				cancelText: "CANCEL",
-				move: function (color) {
-					
-				},
-				show: function () {
-					
-				},
-				beforeShow: function () {
-					
-				},
-				hide: function () {
-					
-				},
-				change: function() {
-					
-				},
-				palette: [
-				["rgb(0, 0, 0)", "rgb(67, 67, 67)", "rgb(102, 102, 102)",
-				"rgb(204, 204, 204)", "rgb(217, 217, 217)","rgb(255, 255, 255)"],
-				["rgb(152, 0, 0)", "rgb(255, 0, 0)", "rgb(255, 153, 0)", "rgb(255, 255, 0)", "rgb(0, 255, 0)",
-				"rgb(0, 255, 255)", "rgb(74, 134, 232)", "rgb(0, 0, 255)", "rgb(153, 0, 255)", "rgb(255, 0, 255)"], 
-				["rgb(230, 184, 175)", "rgb(244, 204, 204)", "rgb(252, 229, 205)", "rgb(255, 242, 204)", "rgb(217, 234, 211)", 
-				"rgb(208, 224, 227)", "rgb(201, 218, 248)", "rgb(207, 226, 243)", "rgb(217, 210, 233)", "rgb(234, 209, 220)", 
-				"rgb(221, 126, 107)", "rgb(234, 153, 153)", "rgb(249, 203, 156)", "rgb(255, 229, 153)", "rgb(182, 215, 168)", 
-				"rgb(162, 196, 201)", "rgb(164, 194, 244)", "rgb(159, 197, 232)", "rgb(180, 167, 214)", "rgb(213, 166, 189)", 
-				"rgb(204, 65, 37)", "rgb(224, 102, 102)", "rgb(246, 178, 107)", "rgb(255, 217, 102)", "rgb(147, 196, 125)", 
-				"rgb(118, 165, 175)", "rgb(109, 158, 235)", "rgb(111, 168, 220)", "rgb(142, 124, 195)", "rgb(194, 123, 160)",
-				"rgb(166, 28, 0)", "rgb(204, 0, 0)", "rgb(230, 145, 56)", "rgb(241, 194, 50)", "rgb(106, 168, 79)",
-				"rgb(69, 129, 142)", "rgb(60, 120, 216)", "rgb(61, 133, 198)", "rgb(103, 78, 167)", "rgb(166, 77, 121)",
-				"rgb(91, 15, 0)", "rgb(102, 0, 0)", "rgb(120, 63, 4)", "rgb(127, 96, 0)", "rgb(39, 78, 19)", 
-				"rgb(12, 52, 61)", "rgb(28, 69, 135)", "rgb(7, 55, 99)", "rgb(32, 18, 77)", "rgb(76, 17, 48)"]
-				]
-			});
-			
-		});
-		</script>
+		<script src='js/spectrum-custom.js'></script>	
 	</body>
 </html>

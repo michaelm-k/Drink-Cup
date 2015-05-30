@@ -1,0 +1,67 @@
+html,body {
+   height:100%;
+   font-family: "Permanent Marker"; font-size: 30px; 
+   overflow: hidden;
+   max-width:100%;
+}
+
+#drink_up {
+	position:relative;top:40px;
+}
+
+#uniquedrinks {
+	position:relative;opacity:0;top:20px;
+}
+
+.fa-question {
+	right: 2%;
+	top: 10%;
+	cursor: pointer;
+	position:absolute;
+}
+
+#soundstatus {
+	z-index:6;
+	right:1%;
+	top:1%;
+	cursor:pointer;
+	position:absolute;
+}
+
+.custom-wrapper {
+   min-height:100%;
+   position:relative;
+   max-width:100%;
+}
+
+.pad-container{
+  padding-top:40px;
+  max-width:100%;
+}
+
+#arrow-right {
+	top: 90px;
+	float:left;
+	position:relative;
+	opacity:0;
+	width: 20%!important;
+	height: auto!important;
+}
+
+#arrow-left{
+	top: 90px;
+	float:right;
+	position:relative;
+	opacity:0;
+	width: 20%!important;
+	height: auto!important;
+}
+
+#info-modal .modal-title {
+	font-size:30px;
+}
+
+#info-modal .modal-body {
+	font-size:20px;
+	font-weight:1000;
+}
