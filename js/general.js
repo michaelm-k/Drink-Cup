@@ -18,11 +18,19 @@ $('#info-modal').modal('show');
 
 	//START: RIGHT ARROW
 	function goLeft() {
-		$('#arrow-right').animate({'left': '-2%'}, 1000, goRight);		
+		if ($(window).width() > 1000){
+			$('#arrow-right').animate({'left': '-6%'}, 1000, goRight);
+		} else {
+			$('#arrow-right').animate({'left': '-2%'}, 1000, goRight);
+		}
 	}
 		
 	function goRight() {
-		$('#arrow-right').animate({'left': '6%'}, 1000, goLeft);
+		if ($(window).width() > 1000){
+			$('#arrow-right').animate({'left': '15%'}, 1000, goLeft);
+		} else {
+			$('#arrow-right').animate({'left': '6%'}, 1000, goLeft);
+		}
 	}	
 		
 	setTimeout(function() {
@@ -35,11 +43,19 @@ $('#info-modal').modal('show');
 	
 	//START: LEFT ARROW
 	function goLeft2() {
-		$('#arrow-left').animate({'left': '-6%'}, 1000, goRight2);		
+		if ($(window).width() > 1000){
+			$('#arrow-left').animate({'left': '-15%'}, 1000, goRight2);
+		} else {	
+			$('#arrow-left').animate({'left': '-6%'}, 1000, goRight2);
+		}			
 	}
 		
 	function goRight2() {
-		$('#arrow-left').animate({'left': '2%'}, 1000, goLeft2);
+		if ($(window).width() > 1000){
+			$('#arrow-left').animate({'left': '6%'}, 1000, goLeft2);
+		} else {	
+			$('#arrow-left').animate({'left': '2%'}, 1000, goLeft2);
+		}
 	}	
 	setTimeout(function() {
 		$('#arrow-left').each(function(i) {

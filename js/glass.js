@@ -11,7 +11,7 @@ function pourDrink() {
     }, 3925, function () {
         slurped=0;
 		glassclicks=0;
-		$(".img-responsive").css("cursor", "pointer");
+		$(".wrapper .img-responsive").css("cursor", "pointer");
     });
 }
 pourDrink();
@@ -60,12 +60,12 @@ setTimeout(function(){ //wait for D-R-I-N-K U-P to finish
 $( '.glass' ).click(function() {
 	glassclicks++;		
 	waterColor = $("#full").val();
-	$(".img-responsive").css("cursor", "default");	
+	$(".wrapper .img-responsive").css("cursor", "default");	
 	if (slurped==0&&poured==1 && glassclicks==1) {
 		slurpAudio.play();	
 		$('.wrapper .water').animate({'height' : 0, 'top' : '229px' }, 3000, function() {	
 			$("#full").spectrum("enable");
-			$(".img-responsive").css("cursor", "pointer");
+			$(".wrapper .img-responsive").css("cursor", "pointer");
 			slurped=1;
 			poured=0;
 			glassclicks=0;
